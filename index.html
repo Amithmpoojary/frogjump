@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="frogjump.css" />
+		<style>
+			body {
+				overflow: hidden;
+				user-select: none;
+				background-image: url("./img/back.jpg");
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: cover;
+				background-attachment: fixed;
+			}
+			.wood {
+				height: 500px;
+				width: 100px;
+				margin-right: 30px;
+				margin-left: 30px;
+			}
+			.woodimage {
+				position: absolute;
+				bottom: -100px;
+			}
+			.frogimage {
+				position: absolute;
+				bottom: 43%;
+				z-index: 10;
+			}
+			.frog {
+				height: 100px;
+				width: 100px;
+				margin-right: 30px;
+				margin-left: 30px;
+			}
+			#svg {
+				position: relative;
+				height: 50%;
+				bottom: -130px;
+				z-index: 1;
+				margin: 0;
+			}
+			.everything {
+				display: flex;
+				justify-content: center;
+			}
+			.overlay{
+				position: fixed;
+				top:0px;
+				left:0px;
+				width:100vw;
+				height:100vh;
+				background:rgba(0,0,0,0.7);
+				z-index: 100;
+			}
+			.content{
+				position:absolute;
+				top:50%;
+				left:50%;
+				transform: translate(-50%,-50%);
+				background-color: white;
+				height: 250px;
+				width:400px;
+				z-index:200;
+				text-align: center;
+				display:flex;
+				flex-direction: column;
+				border-radius: 2%;
+			}
+			.close-btn{
+				display: inline;
+				float:right;
+				font-size:30px;
+				padding:10px;
+			}
+			.text{
+				position:absolute;
+				top:50%;
+				left:50%;
+				transform: translate(-50%,-50%);
+				font-size:50px;
+				font-weight: bold;
+			}
+			.notshow{
+				display:none;
+			}
+			#b1,#b2,#b3{
+				color:white;
+				font-size:25px;
+				font-family:Verdana, Geneva, Tahoma, sans-serif;
+				border-radius: 4px;
+				margin-right:30px;
+				background-color:grey;
+				border: none;
+
+
+			}
+		</style>
+	</head>
+	<body onload="createSvg()">
+		<button id="b1" onclick="selectLevel(3)">EASY</button>
+		<button id="b2" onclick="selectLevel(5)">MODERATE</button>
+		<button id="b3" onclick="selectLevel(7)">HARD</button>
+		<center>
+			<div class="everything">
+				<div class="woodimage"></div>
+				<div class="frogimage"></div>
+			</div>
+		</center>
+		<div id="svg"></div>
+		<div class="model">
+
+			<div class ="overlay" onabort="closepop()"></div>
+			<div class="content">
+				<div class="head">
+					<div  onclick="closepop()"class="close-btn">&times;</div>
+				</div>
+				<div class="text">YOU WON</div>
+			</div>
+		</div>
+	</body>
+	<script src="working.js"></script>
+	<script src="svg.js"></script>
+</html>
